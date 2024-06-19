@@ -5,7 +5,7 @@ import { Route, RouterProvider, createRoutesFromElements } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
-
+import axios from "axios";
 //private route
 import PrivateRoute from "./components/PrivateRoute.jsx";
 //Auth
@@ -32,6 +32,9 @@ import Order from "./pages/Orders/Order.jsx";
 import UserOrder from "./pages/User/UserOrder.jsx";
 import OrderList from "./pages/Admin/OrderList.jsx";
 import AdminDashboard from "./pages/Admin/AdminDashboard.jsx";
+
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+axios.defaults.withCredentials= true;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
