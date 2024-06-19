@@ -1,13 +1,14 @@
+import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useGetProductsQuery } from "../redux/api/productApiSlice"; 
+import { useGetProductsQuery } from "../redux/api/productApiSlice";
 import Loader from "../components/Loader";
 import Header from "../components/Header";
 import Product from "./Products/Product";
-import Message from "../components/Message";
 
 const Home = () => {
-    const { keyword } = useParams();
+  const { keyword } = useParams();
   const { data, isLoading, isError } = useGetProductsQuery({ keyword });
+
   return (
     <>
       {!keyword ? <Header /> : null}
@@ -16,9 +17,9 @@ const Home = () => {
           <Loader />
         </div>
       ) : isError ? (
-        <Message variant="danger">
-          {isError?.data.message || isError.error}
-        </Message>
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-red-500">Error: Failed to fetch data</p>
+        </div>
       ) : (
         <>
           <div className="flex flex-col lg:flex-row justify-between items-center mt-20 ">
@@ -48,4 +49,5 @@ const Home = () => {
     </>
   );
 };
-export default Home
+
+export default Home;
