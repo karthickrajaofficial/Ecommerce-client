@@ -17,7 +17,7 @@ const Home = () => {
         </div>
       ) : isError ? (
         <Message variant="danger">
-          {isError?.data?.message || isError?.error || "An unknown error occurred"}
+          {isError?.data.message || isError.error}
         </Message>
       ) : (
         <>
