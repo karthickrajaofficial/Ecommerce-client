@@ -25,8 +25,8 @@ app.use(cookieParser());
 
 // CORS configuration
 app.use(cors({
-  origin: true,
-  credentials: true
+  origin: 'https://jewelfrontend.vercel.app',
+  methods: ['GET', 'POST'],
 }));
 
 // Routes
