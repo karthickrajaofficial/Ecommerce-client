@@ -30,9 +30,9 @@ app.use('/api/upload',uploadRoutes)
 app.use('/api/orders',orderRoutes)
 
 
-app.get('/api/config/paypal',(req,res) => {
-    res.send ({ clientId : process.env.PAYPAL_CLIENT_ID })
-} )
+// app.get('/api/config/paypal',(req,res) => {
+//     res.send ({ clientId : process.env.PAYPAL_CLIENT_ID })
+// } )
 // Assuming you have a route to fetch the Razorpay key ID
 app.get('/api/config/razorpay-key-id', (req, res) => {
     const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
